@@ -7,31 +7,45 @@
     <link rel="shortcut icon" href="open-book.png" type="imagem/x-icon">
     <link rel="stylesheet" type="text/css" href="site2.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            text-align: center;
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
         }
-        #searchBar {
-            width: 60%;
+
+        input[type="text"] {
             padding: 10px;
-            font-size: 16px;
+            width: 250px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-        #lista {
-            list-style: none;
-            padding: 0;
-        }
-        .item {
+
+        button {
             padding: 10px;
-            border-bottom: 1px solid #ddd;
+            margin-left: 5px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <H1>bookflix</H1>
 
-    
-</body>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search...">
+        <button onclick="searchFunction()">Search</button>
+    </div>
+
+    <script>
+        function searchFunction() {
+            let query = document.getElementById("search").value;
+            alert("You searched for: " + query);
+        }
+    </script>
 </html>
