@@ -118,5 +118,19 @@
             let query = document.getElementById("search").value;
             alert("You searched for: " + query);
         }
+function searchFunction() {
+    const input = document.getElementById("search").value.toLowerCase();
+    const books = document.getElementsByClassName("book-card");
+
+    for (let i = 0; i < books.length; i++) {
+        const title = books[i].querySelector(".book-title").textContent.toLowerCase();
+        if (title.includes(input)) {
+            books[i].style.display = "block";
+        } else {
+            books[i].style.display = "none";
+        }
+    }
+}
+
     </script>
 </html>
