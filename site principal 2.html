@@ -33,6 +33,59 @@
         button:hover {
             background-color: #0056b3;
         }
+        .book-card {
+    flex: 0 0 auto;
+    width: 150px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.book-card img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.book-card p {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+}
+.book-card {
+    flex: 0 0 auto;
+    width: 150px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.book-card img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.book-card p {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.rating {
+    margin-top: 8px;
+    font-size: 18px;
+    color: gold;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+}
+
     </style>
 </head>
 <body>
@@ -41,6 +94,19 @@
         <input type="text" id="search" placeholder="Search...">
         <button onclick="searchFunction()">Search</button>
     </div>
+    <div class="book-card">
+  <img src="images/anne frank diario.png" alt="Diario de Anne Frank">
+  <p>Diario de Anne Frank</p>
+        <div class="book-card">
+  <img src="images/anne frank diario.png" alt="Diario de Anne Frank">
+  <p>Diario de Anne Frank</p>
+  <div class="rating">
+    &#9733;&#9733;&#9733;&#9733;&#9734; <!-- 4 filled stars, 1 empty -->
+  </div>
+</div>
+
+</div>
+
 
     <script>
         function searchFunction() {
