@@ -1,11 +1,12 @@
+corrija o codigo 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookflix</title>
-    <link rel="shortcut icon" href="open-book.png" type="image/x-icon">
-    <link rel="stylesheet" href="site2.css">
+    <title>bookflix</title>
+    <link rel="shortcut icon" href="open-book.png" type="imagem/x-icon">
+    <link rel="stylesheet" type="text/css" href="site2.css">
     <style>
         .search-container {
             display: flex;
@@ -33,43 +34,59 @@
         button:hover {
             background-color: #0056b3;
         }
-
-        .book-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 20px;
-        }
-
         .book-card {
-            width: 150px;
-            text-align: center;
-            transition: transform 0.2s ease;
-        }
+    flex: 0 0 auto;
+    width: 150px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
 
-        .book-card img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
+.book-card img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
 
-        .book-card p {
-            margin-top: 8px;
-            font-weight: bold;
-            font-size: 14px;
-            color: #333;
-        }
+.book-card p {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
 
-        .rating {
-            margin-top: 8px;
-            font-size: 18px;
-            color: gold;
-        }
+.book-card:hover {
+    transform: scale(1.05);
+}
+.book-card {
+    flex: 0 0 auto;
+    width: 150px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
 
-        .book-card:hover {
-            transform: scale(1.05);
-        }
+.book-card img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.book-card p {
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.rating {
+    margin-top: 8px;
+    font-size: 18px;
+    color: gold;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+}
+
     </style>
 </head>
 <body>
@@ -78,32 +95,56 @@
         <input type="text" id="search" placeholder="Search...">
         <button onclick="searchFunction()">Search</button>
     </div>
+    <div class="book-card">
+        <div class="book-card">
+  <img src="annefrankdiario.jpg" alt="Diario de Anne Frank">
+  <p>Diario de Anne Frank</p>
+  <div class="rating">
+    &#9733;&#9733;&#9733;&#9734;&#9734;
+  </div>
+</div>
+        <div class="book-card">
+        <div class="book-card">
+  <img src="Diario-de-um-banana.png" alt="Diario de um banana">
+  <p>Diario de um banana</p>
+  <div class="rating">
+    &#9733;&#9733;&#9733;&#9733;&#9733;
+      
+      <div class="book-list">
+  <div class="book-card">
+    <img src="images/annefrankdiario.jpg" alt="Diario de Anne Frank">
+    <p class="book-title">Diario de Anne Frank</p>
+  </div>
+  <div class="book-card">
+    <img src="images/Diario-de-um-banana" alt="Diario de um banana">
+    <p class="book-title">Diario de um banana</p>
+  </div>
+  <!-- e mais livros -->
+</div>
 
-    <div class="book-list">
-        <div class="book-card">
-            <img src="annefrankdiario.jpg" alt="Diario de Anne Frank">
-            <p class="book-title">Diario de Anne Frank</p>
-            <div class="rating">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
-        </div>
-        <div class="book-card">
-            <img src="Diario-de-um-banana.png" alt="Diario de um banana">
-            <p class="book-title">Diario de um banana</p>
-            <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        </div>
-        <!-- Adicione mais livros aqui -->
-    </div>
+  
+
+</div>
+
 
     <script>
         function searchFunction() {
-            const input = document.getElementById("search").value.toLowerCase();
-            const books = document.getElementsByClassName("book-card");
-
-            for (let i = 0; i < books.length; i++) {
-                const title = books[i].querySelector(".book-title").textContent.toLowerCase();
-                books[i].style.display = title.includes(input) ? "block" : "none";
-            }
+            let query = document.getElementById("search").value;
+            alert("You searched for: " + query);
         }
-    </script>
+function searchFunction() {
+    const input = document.getElementById("search").value.toLowerCase();
+    const books = document.getElementsByClassName("book-card");
 
-</body>
+    for (let i = 0; i < books.length; i++) {
+        const title = books[i].querySelector(".book-title").textContent.toLowerCase();
+        if (title.includes(input)) {
+            books[i].style.display = "block";
+        } else {
+            books[i].style.display = "none";
+        }
+    }
+}
+
+    </script>
 </html>
