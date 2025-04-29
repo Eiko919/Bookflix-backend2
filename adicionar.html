@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Adicionar Novo Livro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      max-width: 700px;
+      margin: auto;
+      background-color: #f9f9f9;
+    }
 
+    h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 16px;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .preview {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .preview img {
+      max-width: 200px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Adicionar Novo Livro</h2>
+
+  <form id="book-form">
+    <label for="title">Título do Livro:</label>
+    <input type="text" id="title" required>
+
+    <label for="description">Descrição:</label>
+    <textarea id="description" required></textarea>
+
+    <label for="image-url">URL da Capa do Livro:</label>
+    <input type="text" id="image-url" required>
+
+    <button type="submit">Visualizar</button>
+  </form>
+
+  <div class="preview" id="book-preview"></div>
+
+  <script>
+    document.getElementById("book-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      const imageUrl = document.getElementById("image-url").value;
+
+      const preview = document.getElementById("book-preview");
+      preview.innerHTML = `
+        <h3>${title}</h3>
+        <img src="${imageUrl}" alt="Capa do livro">
+        <p>${description}</p>
+      `;
+    });
+  </script>
+
+</body>
+</html>
