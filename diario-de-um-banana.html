@@ -8,35 +8,53 @@
       font-family: Arial, sans-serif;
       padding: 20px;
       margin: 0;
-      height: 100vh;
       display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
     }
 
     .container {
       display: flex;
       width: 100%;
-    }
-
-    /* Book image and description occupies 2/3 of the page height */
-    .book-content {
-      flex: 2;
-      height: 66.67%; /* 2/3 of the height */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .book-image {
-      width: 100%;
-      height: 50%;
+      max-width: 1200px;
+      justify-content: space-between;
       margin-bottom: 20px;
     }
 
-    .book-description {
-      height: 50%;
+    /* Image and comments section */
+    .book-content {
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .book-image {
+      width: 50%;
+      max-width: 400px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .reviews {
+      width: 45%;
       padding: 20px;
       background-color: #f8f8f8;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* About the Book Section */
+    .book-description {
+      width: 100%;
+      background-color: #f8f8f8;
+      padding: 20px;
       border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
     }
 
     .rating {
@@ -87,23 +105,7 @@
       padding-top: 10px;
     }
 
-    /* Reviews section on the left side of the page */
-    .reviews {
-      width: 30%;
-      height: 100%;
-      background-color: #fff;
-      padding: 20px;
-      box-sizing: border-box;
-      border-radius: 10px;
-      margin-right: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      overflow-y: auto;
-    }
-
-    .reviews h3 {
-      margin-top: 0;
-    }
-
+    /* Review Container */
     .review-container {
       margin-top: 20px;
       max-height: 500px;
@@ -140,25 +142,25 @@
   <h2>Avaliação do Livro: "Diário de um Banana"</h2>
 
   <div class="container">
-    <!-- Reviews Section on the Left Side -->
-    <div class="reviews">
-      <h3>Avaliações dos Leitores:</h3>
-      <div class="review-container">
-        <!-- Reviews will be dynamically added here -->
-      </div>
-    </div>
-
-    <!-- Book Image and Description occupying 2/3 of the page height -->
+    <!-- Book Image and Reviews Section -->
     <div class="book-content">
       <div class="book-image">
-        <img src="diario-de-um-banana.png" alt="Diário de um Banana" style="width: 100%; height: 100%; border-radius: 8px;">
+        <img src="diario-de-um-banana.png" alt="Diário de um Banana" style="width: 100%; height: auto; border-radius: 8px;">
       </div>
 
-      <div class="book-description">
-        <h3>Sobre o Livro:</h3>
-        <p>O "Diário de um Banana" é uma história engraçada sobre as aventuras de Greg Heffley, um adolescente que tenta navegar pelos altos e baixos da vida escolar. Com situações hilárias e personagens cativantes, o livro se tornou um sucesso entre os jovens leitores.</p>
+      <div class="reviews">
+        <h3>Avaliações dos Leitores:</h3>
+        <div class="review-container">
+          <!-- Reviews will be dynamically added here -->
+        </div>
       </div>
     </div>
+  </div>
+
+  <!-- About the Book Section -->
+  <div class="book-description">
+    <h3>Sobre o Livro:</h3>
+    <p>O "Diário de um Banana" é uma história engraçada sobre as aventuras de Greg Heffley, um adolescente que tenta navegar pelos altos e baixos da vida escolar. Com situações hilárias e personagens cativantes, o livro se tornou um sucesso entre os jovens leitores.</p>
   </div>
 
   <!-- Review Form -->
