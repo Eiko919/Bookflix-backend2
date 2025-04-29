@@ -85,22 +85,30 @@
 .book-card:hover {
     transform: scale(1.05);
 }
+#add-book-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
 
+#add-book-button:hover {
+  background-color: #218838;
+}
+
+
+        
     </style>
 </head>
 <body>
-<button onclick="checkPermission()">Adicionar Livro</button>
-
-  <script>
-    function checkPermission() {
-      const senha = prompt("Digite a senha:");
-      if (senha === "bookflixprogramador919") {
-        window.location.href = "adicionar.html"; 
-      } else {
-        alert("Acesso negado.");
-      }
-    }
-  </script>
     <div class="search-container">
         <input type="text" id="search" placeholder="Search...">
         <button onclick="searchFunction()">Search</button>
@@ -132,4 +140,20 @@
             alert("You searched for: " + query);
         }
     </script>
+  </div>
+        </div>
+        </div>
+    <button onclick="checkPermission()">Adicionar Livro</button>
+
+  <script>
+    function checkPermission() {
+      const senha = prompt("Digite a senha:");
+      if (senha === "bookflixprogramador919") {
+        window.location.href = "adicionar.html"; 
+      } else {
+        alert("Acesso negado.");
+      }
+    }
+  </script>
+</body>
 </html>
