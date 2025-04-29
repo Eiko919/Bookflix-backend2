@@ -7,8 +7,25 @@
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      max-width: 600px;
+      max-width: 800px;
       margin: auto;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .book-image {
+      flex: 1;
+      max-width: 400px;
+      margin-right: 20px;
+    }
+
+    .book-description {
+      flex: 2;
+      max-width: 600px;
     }
 
     .rating {
@@ -58,12 +75,56 @@
       border-top: 1px solid #ccc;
       padding-top: 10px;
     }
+
+    .review-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    .review {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .review h4 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .review p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .review .stars {
+      color: gold;
+    }
   </style>
 </head>
 <body>
 
-  <h2>Deixe sua Avaliação para "Diário de um Banana"</h2>
+  <h2>Avaliação do Livro: "Diário de um Banana"</h2>
 
+  <div class="container">
+    <!-- Book Image -->
+    <div class="book-image">
+      <img src="diario-de-um-banana.png" alt="Diário de um Banana" style="width: 100%; border-radius: 8px;">
+    </div>
+
+    <!-- Book Description -->
+    <div class="book-description">
+      <h3>Sobre o Livro:</h3>
+      <p>O "Diário de um Banana" é uma história engraçada sobre as aventuras de Greg Heffley, um adolescente que tenta navegar pelos altos e baixos da vida escolar. Com situações hilárias e personagens cativantes, o livro se tornou um sucesso entre os jovens leitores.</p>
+    </div>
+  </div>
+
+  <!-- Review Form -->
+  <h3>Deixe sua Avaliação:</h3>
   <form id="review-form">
     <div class="rating">
       <input type="radio" name="stars" id="estrela5" value="5"><label for="estrela5">&#9733;</label>
@@ -82,6 +143,11 @@
   </form>
 
   <div class="submitted-review" id="submitted-review"></div>
+
+  <h3>Avaliações dos Leitores:</h3>
+  <div class="review-container" id="review-container">
+    <!-- Reviews will appear here -->
+  </div>
 
   <script>
     document.getElementById("review-form").addEventListener("submit", function(e) {
@@ -102,10 +168,21 @@
         <p><strong>Comentário:</strong> ${comentario}</p>
       `;
 
+      // Add the review to the review container
+      const reviewContainer = document.getElementById("review-container");
+      const reviewDiv = document.createElement("div");
+      reviewDiv.classList.add("review");
+      reviewDiv.innerHTML = `
+        <h4>Nota: ${estrelas.value} estrela(s)</h4>
+        <p>${comentario}</p>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      `;
+      reviewContainer.appendChild(reviewDiv);
+
+      // Reset the form after submission
       this.reset();
     });
   </script>
 
 </body>
 </html>
-
