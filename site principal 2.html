@@ -89,9 +89,17 @@
     </style>
 </head>
 <body>
-<a href="adicionar.html">
-  <button>Adicionar Novo Livro</button>
-</a>
+<button onclick="checkPermission()">Adicionar Livro"</button>
+    <script>
+        function checkPermission() {
+            const senha = prompt(:Digitar a senha:");
+                if (senha === "programadorbookflix919") {
+                window.location.href = "adicionar.html"; // Altere para o nome correto da sua página de adicionar
+      } else {
+        alert("Acesso negado.");
+            }
+
+        }
     <div class="search-container">
         <input type="text" id="search" placeholder="Search...">
         <button onclick="searchFunction()">Search</button>
