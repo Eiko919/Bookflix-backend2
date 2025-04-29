@@ -2,22 +2,17 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Avaliação - Diário de um Banana</title>
+  <title>Avaliação do Livro</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      margin: 0;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      min-height: 100vh;
-      background-color: #f0f0f0;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-      text-align: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
     }
 
     .container {
@@ -27,16 +22,17 @@
       justify-content: space-between;
     }
 
-    /* Left side for comments and reviews */
-    .comments-section {
-      width: 30%;
-      padding: 20px;
-      background-color: #f8f8f8;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    .left {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .right {
+      flex: 2;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: center;
+      align-items: center;
     }
 
     .rating {
@@ -81,105 +77,73 @@
       border-radius: 5px;
     }
 
-    .review-container {
-      margin-top: 20px;
-      max-height: 500px;
-      overflow-y: auto;
-    }
-
-    .review {
-      margin-bottom: 20px;
-      padding: 10px;
-      background-color: #f9f9f9;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .review h4 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .review p {
-      margin-top: 5px;
-      font-size: 14px;
-    }
-
-    .review .stars {
-      color: gold;
-    }
-
-    /* Right side for book image and about the book */
-    .book-content {
-      width: 65%;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .submitted-review {
+      margin-top: 30px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
     }
 
     .book-image {
-      width: 80%;
       max-width: 500px;
-      height: auto;
       margin-bottom: 20px;
+    }
+
+    .book-image img {
+      width: 100%;
       border-radius: 8px;
     }
 
     .book-description {
-      width: 100%;
-      background-color: #f8f8f8;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 10px;
     }
 
+    .book-description h3 {
+      font-size: 20px;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <!-- Left side: Comments and Reviews -->
-    <div class="comments-section">
-      <h3>Avaliação do Livro: "Diário de um Banana"</h3>
-      <form id="review-form">
-        <div class="rating">
-          <input type="radio" name="stars" id="estrela5" value="5"><label for="estrela5">&#9733;</label>
-          <input type="radio" name="stars" id="estrela4" value="4"><label for="estrela4">&#9733;</label>
-          <input type="radio" name="stars" id="estrela3" value="3"><label for="estrela3">&#9733;</label>
-          <input type="radio" name="stars" id="estrela2" value="2"><label for="estrela2">&#9733;</label>
-          <input type="radio" name="stars" id="estrela1" value="1"><label for="estrela1">&#9733;</label>
-        </div>
+    <!-- Left Section: Comments and Reviews -->
+    <div class="left">
+      <h2>Avaliação do Livro: "Diário de um Banana"</h2>
 
-        <div class="review-box">
-          <label for="review">Seu comentário:</label>
-          <textarea id="review" required></textarea>
-        </div>
+      <div class="rating">
+        <input type="radio" name="stars" id="estrela5" value="5"><label for="estrela5">&#9733;</label>
+        <input type="radio" name="stars" id="estrela4" value="4"><label for="estrela4">&#9733;</label>
+        <input type="radio" name="stars" id="estrela3" value="3"><label for="estrela3">&#9733;</label>
+        <input type="radio" name="stars" id="estrela2" value="2"><label for="estrela2">&#9733;</label>
+        <input type="radio" name="stars" id="estrela1" value="1"><label for="estrela1">&#9733;</label>
+      </div>
 
-        <button type="submit">Enviar</button>
-      </form>
+      <div class="review-box">
+        <label for="review">Seu comentário:</label>
+        <textarea id="review" required></textarea>
+      </div>
 
-      <div class="review-container" id="review-container"></div>
+      <button type="submit" id="submit-button">Enviar</button>
+
+      <div class="submitted-review" id="submitted-review"></div>
     </div>
 
-    <!-- Right side: Book Image and About -->
-    <div class="book-content">
-      <h3>Avaliação do Livro</h3>
+    <!-- Right Section: Image and Description -->
+    <div class="right">
       <div class="book-image">
         <img src="diario-de-um-banana.png" alt="Diário de um Banana">
       </div>
-
       <div class="book-description">
-        <h4>Sobre o Livro:</h4>
-        <p>O "Diário de um Banana" é uma história engraçada sobre as aventuras de Greg Heffley, um adolescente que tenta navegar pelos altos e baixos da vida escolar. Com situações hilárias e personagens cativantes, o livro se tornou um sucesso entre os jovens leitores.</p>
+        <h3>Sobre o Livro</h3>
+        <p>O livro "Diário de um Banana" é uma série de livros que segue a vida de Greg Heffley, um adolescente que está tentando lidar com a vida escolar e com os desafios da adolescência. Através de seu diário, ele compartilha suas experiências engraçadas e frustrantes, com um toque de humor que atrai leitores jovens.</p>
       </div>
     </div>
   </div>
 
   <script>
-    document.getElementById("review-form").addEventListener("submit", function(e) {
+    document.getElementById("submit-button").addEventListener("click", function(e) {
       e.preventDefault();
 
       const estrelas = document.querySelector('input[name="stars"]:checked');
@@ -190,21 +154,16 @@
         return;
       }
 
-      // Create a new review element
-      const reviewContainer = document.createElement("div");
-      reviewContainer.classList.add("review");
-      reviewContainer.innerHTML = `
-        <h4>Nota: ${estrelas.value} estrela(s)</h4>
-        <p>${comentario}</p>
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      const reviewSection = document.getElementById("submitted-review");
+      reviewSection.innerHTML = `
+        <h3>Sua Avaliação Enviada:</h3>
+        <p><strong>Nota:</strong> ${estrelas.value} estrela(s)</p>
+        <p><strong>Comentário:</strong> ${comentario}</p>
       `;
 
-      // Append the new review to the review container
-      const reviewsSection = document.getElementById("review-container");
-      reviewsSection.appendChild(reviewContainer);
-
       // Reset the form after submission
-      this.reset();
+      document.getElementById("review").value = "";
+      document.querySelector('input[name="stars"]:checked').checked = false;
     });
   </script>
 
