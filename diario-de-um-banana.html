@@ -7,7 +7,7 @@
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      max-width: 800px;
+      max-width: 1200px;
       margin: auto;
     }
 
@@ -17,9 +17,16 @@
       justify-content: space-between;
     }
 
+    /* Book image and description occupy 2/3 of the site */
+    .book-content {
+      flex: 2;
+      display: flex;
+      justify-content: space-between;
+    }
+
     .book-image {
       flex: 1;
-      max-width: 400px;
+      max-width: 450px;
       margin-right: 20px;
     }
 
@@ -77,8 +84,6 @@
     }
 
     .review-container {
-      display: flex;
-      flex-direction: column;
       margin-top: 20px;
     }
 
@@ -104,6 +109,30 @@
     .review .stars {
       color: gold;
     }
+
+    /* Position the review section at the top-left of the page */
+    .reviews {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 250px;
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .reviews h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .reviews .review-container {
+      margin-top: 15px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
   </style>
 </head>
 <body>
@@ -111,15 +140,16 @@
   <h2>Avaliação do Livro: "Diário de um Banana"</h2>
 
   <div class="container">
-    <!-- Book Image -->
-    <div class="book-image">
-      <img src="diario-de-um-banana.png" alt="Diário de um Banana" style="width: 100%; border-radius: 8px;">
-    </div>
+    <!-- Book Image and Description -->
+    <div class="book-content">
+      <div class="book-image">
+        <img src="diario-de-um-banana.png" alt="Diário de um Banana" style="width: 100%; border-radius: 8px;">
+      </div>
 
-    <!-- Book Description -->
-    <div class="book-description">
-      <h3>Sobre o Livro:</h3>
-      <p>O "Diário de um Banana" é uma história engraçada sobre as aventuras de Greg Heffley, um adolescente que tenta navegar pelos altos e baixos da vida escolar. Com situações hilárias e personagens cativantes, o livro se tornou um sucesso entre os jovens leitores.</p>
+      <div class="book-description">
+        <h3>Sobre o Livro:</h3>
+        <p>O "Diário de um Banana" é uma história engraçada sobre as aventuras de Greg Heffley, um adolescente que tenta navegar pelos altos e baixos da vida escolar. Com situações hilárias e personagens cativantes, o livro se tornou um sucesso entre os jovens leitores.</p>
+      </div>
     </div>
   </div>
 
@@ -144,11 +174,6 @@
 
   <div class="submitted-review" id="submitted-review"></div>
 
-  <h3>Avaliações dos Leitores:</h3>
-  <div class="review-container" id="review-container">
-    <!-- Reviews will appear here -->
-  </div>
-
   <script>
     document.getElementById("review-form").addEventListener("submit", function(e) {
       e.preventDefault();
@@ -169,20 +194,30 @@
       `;
 
       // Add the review to the review container
-      const reviewContainer = document.getElementById("review-container");
-      const reviewDiv = document.createElement("div");
-      reviewDiv.classList.add("review");
-      reviewDiv.innerHTML = `
+      const reviewContainer = document.createElement("div");
+      reviewContainer.classList.add("review");
+      reviewContainer.innerHTML = `
         <h4>Nota: ${estrelas.value} estrela(s)</h4>
         <p>${comentario}</p>
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       `;
-      reviewContainer.appendChild(reviewDiv);
+
+      // Add the new review to the fixed position container
+      const reviewsSection = document.querySelector('.reviews .review-container');
+      reviewsSection.appendChild(reviewContainer);
 
       // Reset the form after submission
       this.reset();
     });
   </script>
+
+  <!-- Reviews Section at the top-left corner -->
+  <div class="reviews">
+    <h3>Avaliações dos Leitores:</h3>
+    <div class="review-container">
+      <!-- Reviews will be dynamically added here -->
+    </div>
+  </div>
 
 </body>
 </html>
