@@ -7,8 +7,32 @@
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
-      max-width: 600px;
-      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      display: flex;
+      width: 90%;
+      max-width: 1200px;
+      justify-content: space-between;
+    }
+
+    .left {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .right {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .rating {
@@ -58,40 +82,82 @@
       border-top: 1px solid #ccc;
       padding-top: 10px;
     }
+
+    .book-image {
+      max-width: 500px;
+      margin-bottom: 20px;
+    }
+
+    .book-image img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .book-description {
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 10px;
+    }
+
+    .book-description h3 {
+      font-size: 20px;
+    }
   </style>
 </head>
 <body>
 
-  <h2>Deixe sua Avaliação para "Diário de Anne Frank"</h2>
+  <div class="container">
+    <!-- Left Section: Comments and Reviews -->
+    <div class="left">
+      <h2>Avaliação do Livro: "O Diário de Anne Frank"</h2>
 
-  <form id="review-form">
-    <div class="rating">
-      <input type="radio" name="stars" id="estrela5" value="5"><label for="estrela5">&#9733;</label>
-      <input type="radio" name="stars" id="estrela4" value="4"><label for="estrela4">&#9733;</label>
-      <input type="radio" name="stars" id="estrela3" value="3"><label for="estrela3">&#9733;</label>
-      <input type="radio" name="stars" id="estrela2" value="2"><label for="estrela2">&#9733;</label>
-      <input type="radio" name="stars" id="estrela1" value="1"><label for="estrela1">&#9733;</label>
+      <div class="rating">
+        <input type="radio" name="stars" id="estrela5" value="5"><label for="estrela5">&#9733;</label>
+        <input type="radio" name="stars" id="estrela4" value="4"><label for="estrela4">&#9733;</label>
+        <input type="radio" name="stars" id="estrela3" value="3"><label for="estrela3">&#9733;</label>
+        <input type="radio" name="stars" id="estrela2" value="2"><label for="estrela2">&#9733;</label>
+        <input type="radio" name="stars" id="estrela1" value="1"><label for="estrela1">&#9733;</label>
+      </div>
+
+      <div class="review-box">
+        <label for="review">Seu comentário:</label>
+        <textarea id="review" required></textarea>
+      </div>
+
+      <button type="submit" id="submit-button">Enviar</button>
+
+      <div class="submitted-review" id="submitted-review"></div>
     </div>
 
-    <div class="review-box">
-      <label for="review">Seu comentário:</label>
-      <textarea id="review" required></textarea>
+    <!-- Right Section: Image and Description -->
+    <div class="right">
+      <div class="book-image">
+        <img src="diario-de-anne-frank.jpg" alt="O Diário de Anne Frank">
+      </div>
+      <div class="book-description">
+        <h3>Sobre o Livro</h3>
+        <p>
+          "O Diário de Anne Frank" é o registro comovente de uma jovem judia escondida com sua família durante a ocupação nazista. Escrito com sensibilidade e profundidade, o diário revela os medos, esperanças e sonhos de Anne enquanto enfrenta o terror da guerra e o confinamento. Um poderoso testemunho da resistência humana e da importância da esperança.
+        </p>
+      </div>
     </div>
-
-    <button type="submit">Enviar</button>
-  </form>
-
-  <div class="submitted-review" id="submitted-review"></div>
+  </div>
 
   <script>
-    document.getElementById("review-form").addEventListener("submit", function(e) {
+    document.getElementById("submit-button").addEventListener("click", function(e) {
       e.preventDefault();
 
       const estrelas = document.querySelector('input[name="stars"]:checked');
-      const comentario = document.getElementById("review").value;
+      const comentario = document.getElementById("review").value.trim();
 
       if (!estrelas) {
         alert("Por favor, dê uma nota ao livro.");
+        return;
+      }
+
+      if (!comentario) {
+        alert("Por favor, escreva um comentário.");
         return;
       }
 
@@ -102,9 +168,12 @@
         <p><strong>Comentário:</strong> ${comentario}</p>
       `;
 
-      this.reset();
+      // Reset form
+      document.getElementById("review").value = "";
+      document.querySelector('input[name="stars"]:checked').checked = false;
     });
   </script>
 
 </body>
 </html>
+
