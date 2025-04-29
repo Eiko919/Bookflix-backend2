@@ -88,7 +88,7 @@
 #add-book-button {
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
   padding: 12px 20px;
   background-color: #28a745;
   color: white;
@@ -143,8 +143,7 @@
   </div>
         </div>
         </div>
-    <button onclick="checkPermission()">Adicionar Livro</button>
-
+    <button id="add-book-button" onclick="checkPermission()">Adicionar Livro</button>
   <script>
     function checkPermission() {
       const senha = prompt("Digite a senha:");
