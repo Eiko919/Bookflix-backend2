@@ -33,79 +33,63 @@
         button:hover {
             background-color: #0056b3;
         }
+
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
         .book-card {
-    flex: 0 0 auto;
-    width: 150px;
-    text-align: center;
-    transition: transform 0.2s ease;
-}
+            flex: 0 0 auto;
+            width: 150px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
 
-.book-card img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
+        .book-card img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
 
-.book-card p {
-    margin-top: 8px;
-    font-weight: bold;
-    font-size: 14px;
-    color: #333;
-}
+        .book-card p {
+            margin-top: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+        }
 
-.book-card:hover {
-    transform: scale(1.05);
-}
-.book-card {
-    flex: 0 0 auto;
-    width: 150px;
-    text-align: center;
-    transition: transform 0.2s ease;
-}
+        .rating {
+            margin-top: 8px;
+            font-size: 18px;
+            color: gold;
+        }
 
-.book-card img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
+        .book-card:hover {
+            transform: scale(1.05);
+        }
 
-.book-card p {
-    margin-top: 8px;
-    font-weight: bold;
-    font-size: 14px;
-    color: #333;
-}
+        #add-book-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
 
-.rating {
-    margin-top: 8px;
-    font-size: 18px;
-    color: gold;
-}
-
-.book-card:hover {
-    transform: scale(1.05);
-}
-#add-book-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 12px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  z-index: 1000;
-}
-
-#add-book-button:hover {
-  background-color: #218838;
-}
-
-
-        
+        #add-book-button:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
@@ -113,70 +97,54 @@
         <input type="text" id="search" placeholder="Search...">
         <button onclick="searchFunction()">Search</button>
     </div>
-    <div class="book-card">
-        <div class="book-card">
-  <a href="annefrank.html">
-    <img src="annefrankdiario.jpg" alt="Diario de Anne Frank">
-  </a>
-  <p>Diario de Anne Frank</p>
-  <div class="rating">
-    &#9733;&#9733;&#9733;&#9734;&#9734;
-  </div>
-</div>
 
-</div>
+    <div class="book-container">
         <div class="book-card">
+            <a href="annefrank.html">
+                <img src="annefrankdiario.jpg" alt="Diario de Anne Frank">
+            </a>
+            <p>Diario de Anne Frank</p>
+            <div class="rating">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+        </div>
         <div class="book-card">
-        <a href="diario-de-um-banana.html">
-  <img src="Diario-de-um-banana.png" alt="Diario de um banana">
-        </a>
-  <p>Diario de um banana</p>
-  <div class="rating">
-    &#9733;&#9733;&#9733;&#9733;&#9733;
-       <div class="book-card">
+            <a href="diario-de-um-banana.html">
+                <img src="Diario-de-um-banana.png" alt="Diario de um banana">
+            </a>
+            <p>Diario de um banana</p>
+            <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
         <div class="book-card">
-  <a href="kafka-metarmofose.html">
-    <img src="kafka-metamorfose.png" alt="Metamorfose">
-  </a>
-  <p>Metamorfose</p>
-  <div class="rating">
-    &#9733;&#9733;&#9733;&#9734;&#9734;
-  </div>
-</div>
+            <a href="kafka-metarmofose.html">
+                <img src="kafka-metamorfose.png" alt="Metamorfose">
+            </a>
+            <p>Metamorfose</p>
+            <div class="rating">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+        </div>
+        <div class="book-card">
+            <a href="pequeno-principe.html">
+                <img src="pequeno-principe.png" alt="Pequeno principe">
+            </a>
+            <p>Pequeno principe</p>
+            <div class="rating">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+        </div>
+    </div>
 
-</div>
-      <div class="book-card">
-        <div class="book-card">
-  <a href="pequeno-principe.html">
-    <img src="pequeno-principe.png" alt="pequeno-principe">
-  </a>
-  <p>Pequeno principe</p>
-  <div class="rating">
-    &#9733;&#9733;&#9733;&#9734;&#9734;
-  </div>
-</div>
+    <button id="add-book-button" onclick="checkPermission()">Adicionar Livro</button>
 
-</div>
-      
     <script>
         function searchFunction() {
             let query = document.getElementById("search").value;
             alert("You searched for: " + query);
         }
+
+        function checkPermission() {
+            const senha = prompt("Digite a senha:");
+            if (senha === "bookflixprogramador919") {
+                window.location.href = "adicionar.html"; 
+            } else {
+                alert("Acesso negado.");
+            }
+        }
     </script>
-  </div>
-        </div>
-        </div>
-    <button id="add-book-button" onclick="checkPermission()">Adicionar Livro</button>
-  <script>
-    function checkPermission() {
-      const senha = prompt("Digite a senha:");
-      if (senha === "bookflixprogramador919") {
-        window.location.href = "adicionar.html"; 
-      } else {
-        alert("Acesso negado.");
-      }
-    }
-  </script>
 </body>
 </html>
