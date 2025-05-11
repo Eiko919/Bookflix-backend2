@@ -50,9 +50,6 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(() => console.log('MongoDB connected...'))
 .catch((err) => console.log(err));
 
-require('dotenv').config(); // This loads the variables from the .env file
-const mongoose = require('mongoose');
-
 const mongoURI = process.env.MONGO_URI; // Access your connection string from the .env file
 
 mongoose.connect(mongoURI, {
