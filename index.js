@@ -1,7 +1,4 @@
-// index.js
-const express = require('express');
-const app = express();
-const port = 3000;
+
 
 // Middleware to handle static files, if you have any
 app.use(express.static('public'));
@@ -20,7 +17,9 @@ app.listen(port, () => {
 require('dotenv').config(); // Make sure to load environment variables from a .env file
 const express = require('express');
 const mongoose = require('mongoose');
+
 const app = express();
+const port = 3000;
 
 // Middleware to parse incoming JSON
 app.use(express.json());
