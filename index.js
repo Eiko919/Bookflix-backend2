@@ -1,17 +1,18 @@
-// index.js
-require('dotenv').config(); // Load environment variables
+// index.js (or your main server file)
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');  // Import CORS
+require('dotenv').config();    // Load environment variables
+
 const app = express();
+
+// Middleware
+app.use(cors());  // Enable CORS for all origins (you can customize this)
 
 // Environment variables
 const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI || process.env.MONGODB_URI || process.env.DB_URI;
-
-// Middleware
-app.use(express.json());
-app.use(express.static('public'));
 
 // Connect to MongoDB
 mongoose.connect(MONGO_URI, {
