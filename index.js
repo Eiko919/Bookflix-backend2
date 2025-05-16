@@ -54,7 +54,7 @@ app.post('/login', async (req, res) => {
     const user = await User.findOne({ username });
     if (!user) return res.status(400).json({ error: 'User not found' });
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcryptjs.compare(password, user.password);
     if (!isMatch) return res.status(401).json({ error: 'Invalid password' });
 
     // ✅ Redirect on success
