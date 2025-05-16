@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Environment variables
 const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI || process.env.MONGODB_URI || process.env.DB_URI;
+const MONGO_URI = process.env.MONGO_URI;
 
 // Connect to MongoDB
 mongoose.connect(MONGO_URI, {
@@ -31,10 +31,13 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Register route
-app.post('/register', async (req, res) => {
+// Signup route
+app.post('/signup', async (req, res) => {
   try {
     const { username, password } = req.body;
+
+    const existingUser = await User.findOne({ username });
+    if (existingUser) return res.status(409).json({ error: 'Username already taken' });
 
     const hashedPassword = await bcryptjs.hash(password, 10);
     const newUser = new User({ username, password: hashedPassword });
@@ -42,6 +45,7 @@ app.post('/register', async (req, res) => {
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
+    console.error(err);
     res.status(400).json({ error: 'User registration failed' });
   }
 });
@@ -57,9 +61,9 @@ app.post('/login', async (req, res) => {
     const isMatch = await bcryptjs.compare(password, user.password);
     if (!isMatch) return res.status(401).json({ error: 'Invalid password' });
 
-    // ✅ Redirect on success
-    res.status(200).json({ message: 'Login successful', redirect: 'https://bookflix-jbrq.onrender.com' });
+    res.status(200).json({ message: 'Login successful', redirect: '/' });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: 'Login failed' });
   }
 });
