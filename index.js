@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 require('dotenv').config();
 
 const app = express();
@@ -36,7 +36,7 @@ app.post('/register', async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
     const newUser = new User({ username, password: hashedPassword });
 
     await newUser.save();
